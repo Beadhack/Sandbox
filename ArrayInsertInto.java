@@ -9,7 +9,7 @@ public class ArrayInsertInto {
     public static void main(String[] args){
         int arr[] = {2,6,3,8,1};
         int item=86;                  // j is where to put it;  item is what to insert
-        int j=3; 
+        int j=4; 
         
         System.out.println("\n"+"Original array:  "+Arrays.toString(arr)); 
         System.out.println("\n"+"Insert _"+item+"_ at position _"+j+"_");
@@ -27,18 +27,16 @@ public class ArrayInsertInto {
    // copy input array elements to new output array
         System.arraycopy(arr, 0, arrReturn, 0, arr.length);
         
-   // move elements over and insert item into location j
+   // move elements over to make room to insert item
         for (int k = arrReturn.length-1; k>j-2; k--){
             
-            if ( j-1 == k ){
-                arrReturn[k] = item;
-            }
-            else {
-                arrReturn[k] = arrReturn[k-1];
-            }
-        }
+            arrReturn[k] = arrReturn[k-1];
+        } 
+        
+   // insert item into location j 
+        arrReturn[j-1] = item;
 
         return arrReturn;
     
-    }     
+    }   
 }
